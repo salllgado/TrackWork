@@ -73,7 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		78FA8F42224137D900EF23B1 /* TrackWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		78FA8F42224137D900EF23B1 /* TrackWork.dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackWork.dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78FA8F45224137D900EF23B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78FA8F47224137D900EF23B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		78FA8F4A224137D900EF23B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		78FA8F43224137D900EF23B1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				78FA8F42224137D900EF23B1 /* TrackWork.app */,
+				78FA8F42224137D900EF23B1 /* TrackWork.dev.app */,
 				78FA8F56224137DB00EF23B1 /* TrackWorkTests.xctest */,
 				78FA8F5F224137DB00EF23B1 /* TrackWork WatchKit App.app */,
 				78FA8F6E224137DC00EF23B1 /* TrackWork WatchKit Extension.appex */,
@@ -145,12 +145,9 @@
 		78FA8F44224137D900EF23B1 /* TrackWork */ = {
 			isa = PBXGroup;
 			children = (
-				78FA8F45224137D900EF23B1 /* AppDelegate.swift */,
-				78FA8F47224137D900EF23B1 /* ViewController.swift */,
-				78FA8F49224137D900EF23B1 /* Main.storyboard */,
-				78FA8F4C224137DB00EF23B1 /* Assets.xcassets */,
-				78FA8F4E224137DB00EF23B1 /* LaunchScreen.storyboard */,
-				78FA8F51224137DB00EF23B1 /* Info.plist */,
+				78FA8F8E22413A4E00EF23B1 /* Other Sources */,
+				78FA8F8D22413A4100EF23B1 /* Resource */,
+				78FA8F8C22413A3400EF23B1 /* Source */,
 			);
 			path = TrackWork;
 			sourceTree = "<group>";
@@ -158,7 +155,8 @@
 		78FA8F59224137DB00EF23B1 /* TrackWorkTests */ = {
 			isa = PBXGroup;
 			children = (
-				78FA8F5A224137DB00EF23B1 /* TrackWorkTests.swift */,
+				78FA8F9022413A6F00EF23B1 /* Extensions */,
+				78FA8F8F22413A6400EF23B1 /* Controller */,
 				78FA8F5C224137DB00EF23B1 /* Info.plist */,
 			);
 			path = TrackWorkTests;
@@ -167,8 +165,7 @@
 		78FA8F63224137DB00EF23B1 /* TrackWork WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
-				78FA8F64224137DB00EF23B1 /* Interface.storyboard */,
-				78FA8F67224137DC00EF23B1 /* Assets.xcassets */,
+				78FA8F9122413A7E00EF23B1 /* Resources */,
 				78FA8F69224137DC00EF23B1 /* Info.plist */,
 			);
 			path = "TrackWork WatchKit App";
@@ -177,13 +174,88 @@
 		78FA8F72224137DC00EF23B1 /* TrackWork WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				78FA8F73224137DC00EF23B1 /* InterfaceController.swift */,
-				78FA8F75224137DC00EF23B1 /* ExtensionDelegate.swift */,
-				78FA8F77224137DC00EF23B1 /* ComplicationController.swift */,
-				78FA8F79224137DD00EF23B1 /* Assets.xcassets */,
-				78FA8F7B224137DD00EF23B1 /* Info.plist */,
+				78FA8F9422413AA400EF23B1 /* Other Sources */,
+				78FA8F9322413A9A00EF23B1 /* Sources */,
+				78FA8F9222413A9000EF23B1 /* Resources */,
 			);
 			path = "TrackWork WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		78FA8F8C22413A3400EF23B1 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				78FA8F47224137D900EF23B1 /* ViewController.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		78FA8F8D22413A4100EF23B1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				78FA8F49224137D900EF23B1 /* Main.storyboard */,
+				78FA8F4C224137DB00EF23B1 /* Assets.xcassets */,
+				78FA8F4E224137DB00EF23B1 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		78FA8F8E22413A4E00EF23B1 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				78FA8F45224137D900EF23B1 /* AppDelegate.swift */,
+				78FA8F51224137DB00EF23B1 /* Info.plist */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		78FA8F8F22413A6400EF23B1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				78FA8F5A224137DB00EF23B1 /* TrackWorkTests.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		78FA8F9022413A6F00EF23B1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		78FA8F9122413A7E00EF23B1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				78FA8F64224137DB00EF23B1 /* Interface.storyboard */,
+				78FA8F67224137DC00EF23B1 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		78FA8F9222413A9000EF23B1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				78FA8F79224137DD00EF23B1 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		78FA8F9322413A9A00EF23B1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				78FA8F73224137DC00EF23B1 /* InterfaceController.swift */,
+				78FA8F77224137DC00EF23B1 /* ComplicationController.swift */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		78FA8F9422413AA400EF23B1 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				78FA8F75224137DC00EF23B1 /* ExtensionDelegate.swift */,
+				78FA8F7B224137DD00EF23B1 /* Info.plist */,
+			);
+			name = "Other Sources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,7 +277,7 @@
 			);
 			name = TrackWork;
 			productName = TrackWork;
-			productReference = 78FA8F42224137D900EF23B1 /* TrackWork.app */;
+			productReference = 78FA8F42224137D900EF23B1 /* TrackWork.dev.app */;
 			productType = "com.apple.product-type.application";
 		};
 		78FA8F55224137DB00EF23B1 /* TrackWorkTests */ = {
@@ -620,36 +692,40 @@
 		78FA8F87224137DD00EF23B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				APP_SUFIX = .dev;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.dev;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HT3YCTX6YE;
 				INFOPLIST_FILE = TrackWork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SalgadoProductions.TrackWork;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "SalgadoProductions.TrackWork$(APP_SUFIX)";
+				PRODUCT_NAME = "$(TARGET_NAME)$(APP_SUFIX)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		78FA8F88224137DD00EF23B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				APP_SUFIX = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.dev;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HT3YCTX6YE;
 				INFOPLIST_FILE = TrackWork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SalgadoProductions.TrackWork;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "SalgadoProductions.TrackWork$(APP_SUFIX)";
+				PRODUCT_NAME = "$(TARGET_NAME)$(APP_SUFIX)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
