@@ -1,24 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hkY-NM-nTI">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Ponto-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="Uee-0j-aNJ"/>
+                <viewController title="Ponto" id="BYZ-38-t0r" customClass="ViewController" customModule="TrackWork" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hgJ-WS-F3T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oup-WS-XkW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Dw-cJ-ygi">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="489.33333333333331"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKa-au-4bf">
+                                                <rect key="frame" x="16" y="48" width="343" height="297.33333333333331"/>
+                                                <mutableString key="text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</mutableString>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bli-ND-fNm">
+                                                <rect key="frame" x="43.666666666666657" y="377.33333333333331" width="288" height="44"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.80615903249999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="69o-ea-7sI"/>
+                                                    <constraint firstAttribute="width" priority="750" constant="288" id="aPH-2o-MCI"/>
+                                                </constraints>
+                                                <state key="normal" title="BUTTON_TITLE">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="actionCheckin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ci5-Vb-3dH"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuY-Nd-AeW">
+                                                <rect key="frame" x="16" y="453.33333333333337" width="343" height="20"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="eKa-au-4bf" firstAttribute="centerX" secondItem="3Dw-cJ-ygi" secondAttribute="centerX" id="CTU-bJ-IDz"/>
+                                            <constraint firstItem="b0e-ic-CAx" firstAttribute="trailing" secondItem="tuY-Nd-AeW" secondAttribute="trailing" constant="16" id="Cym-4t-EFf"/>
+                                            <constraint firstItem="b0e-ic-CAx" firstAttribute="trailing" secondItem="eKa-au-4bf" secondAttribute="trailing" constant="16" id="FBm-Wq-ftv"/>
+                                            <constraint firstItem="b0e-ic-CAx" firstAttribute="bottom" secondItem="tuY-Nd-AeW" secondAttribute="bottom" constant="16" id="Mcf-Cb-0pW"/>
+                                            <constraint firstItem="Bli-ND-fNm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b0e-ic-CAx" secondAttribute="leading" constant="16" id="Ooe-ou-E3S"/>
+                                            <constraint firstItem="b0e-ic-CAx" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Bli-ND-fNm" secondAttribute="trailing" constant="16" id="Se3-xk-sg4"/>
+                                            <constraint firstItem="Bli-ND-fNm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="eKa-au-4bf" secondAttribute="bottom" constant="32" id="UY8-dD-RZA"/>
+                                            <constraint firstItem="eKa-au-4bf" firstAttribute="top" secondItem="b0e-ic-CAx" secondAttribute="top" constant="48" id="VsA-8x-h27"/>
+                                            <constraint firstItem="Bli-ND-fNm" firstAttribute="centerX" secondItem="3Dw-cJ-ygi" secondAttribute="centerX" id="gb1-mv-QC0"/>
+                                            <constraint firstItem="tuY-Nd-AeW" firstAttribute="top" secondItem="Bli-ND-fNm" secondAttribute="bottom" constant="32" id="lJP-eQ-rPb"/>
+                                            <constraint firstItem="tuY-Nd-AeW" firstAttribute="leading" secondItem="b0e-ic-CAx" secondAttribute="leading" constant="16" id="tQR-gQ-CAo"/>
+                                            <constraint firstItem="eKa-au-4bf" firstAttribute="leading" secondItem="b0e-ic-CAx" secondAttribute="leading" constant="16" id="vtR-ai-5vD"/>
+                                            <constraint firstItem="Bli-ND-fNm" firstAttribute="centerY" secondItem="3Dw-cJ-ygi" secondAttribute="centerY" priority="250" id="yJu-zW-1HB"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="safeArea" id="b0e-ic-CAx"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3Dw-cJ-ygi" firstAttribute="top" secondItem="oup-WS-XkW" secondAttribute="top" id="4os-2D-AjC"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Dw-cJ-ygi" secondAttribute="trailing" id="odo-GG-Pvs"/>
+                                    <constraint firstItem="3Dw-cJ-ygi" firstAttribute="leading" secondItem="oup-WS-XkW" secondAttribute="leading" id="onc-qE-UnJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Dw-cJ-ygi" secondAttribute="bottom" id="xxm-4k-Zm6"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="oup-WS-XkW" secondAttribute="bottom" id="Brq-5H-af5"/>
+                            <constraint firstItem="oup-WS-XkW" firstAttribute="leading" secondItem="hgJ-WS-F3T" secondAttribute="leading" id="QTp-th-qkO"/>
+                            <constraint firstItem="3Dw-cJ-ygi" firstAttribute="width" secondItem="hgJ-WS-F3T" secondAttribute="width" id="SdG-J4-iKe"/>
+                            <constraint firstAttribute="trailing" secondItem="oup-WS-XkW" secondAttribute="trailing" id="Xqn-fA-zRv"/>
+                            <constraint firstItem="oup-WS-XkW" firstAttribute="top" secondItem="hgJ-WS-F3T" secondAttribute="topMargin" id="ZrL-Dy-lpz"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="jPT-PM-Vte">
+                        <barButtonItem key="backBarButtonItem" title=" " id="fi0-WU-xhQ"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btnCheckIn" destination="Bli-ND-fNm" id="N77-Jg-iu9"/>
+                        <outlet property="lbDescription" destination="eKa-au-4bf" id="xxS-Hw-cf2"/>
+                        <outlet property="lbTimeToGo" destination="tuY-Nd-AeW" id="mI6-OO-ScE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="897" y="793"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5QI-Tw-KCd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="hkY-NM-nTI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="cfs-La-5mt">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.19729027152061462" green="0.57593542337417603" blue="0.98550492525100708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="NSK-Kd-48k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="erG-q8-FlN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="792.95352323838085"/>
         </scene>
     </scenes>
 </document>

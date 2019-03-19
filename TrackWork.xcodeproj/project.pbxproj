@@ -21,6 +21,8 @@
 		78FA8F76224137DC00EF23B1 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F75224137DC00EF23B1 /* ExtensionDelegate.swift */; };
 		78FA8F78224137DC00EF23B1 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F77224137DC00EF23B1 /* ComplicationController.swift */; };
 		78FA8F7A224137DD00EF23B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78FA8F79224137DD00EF23B1 /* Assets.xcassets */; };
+		78FA8F962241611800EF23B1 /* Int+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F952241611800EF23B1 /* Int+DateFormatter.swift */; };
+		78FA8F982241616D00EF23B1 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		78FA8F77224137DC00EF23B1 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		78FA8F79224137DD00EF23B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78FA8F7B224137DD00EF23B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78FA8F952241611800EF23B1 /* Int+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+DateFormatter.swift"; sourceTree = "<group>"; };
+		78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				78FA8F47224137D900EF23B1 /* ViewController.swift */,
+				78FA8F952241611800EF23B1 /* Int+DateFormatter.swift */,
+				78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -421,6 +427,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				78FA8F48224137D900EF23B1 /* ViewController.swift in Sources */,
+				78FA8F962241611800EF23B1 /* Int+DateFormatter.swift in Sources */,
+				78FA8F982241616D00EF23B1 /* DateFormatterHelper.swift in Sources */,
 				78FA8F46224137D900EF23B1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,6 +503,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APP_SUFIX = .dev;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -556,6 +565,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APP_SUFIX = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -619,7 +629,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SalgadoProductions.TrackWork.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = "SalgadoProductions.TrackWork$(APP_SUFIX).watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -641,7 +651,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SalgadoProductions.TrackWork.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = "SalgadoProductions.TrackWork$(APP_SUFIX).watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -660,7 +670,7 @@
 				DEVELOPMENT_TEAM = HT3YCTX6YE;
 				IBSC_MODULE = TrackWork_WatchKit_Extension;
 				INFOPLIST_FILE = "TrackWork WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = SalgadoProductions.TrackWork.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = "SalgadoProductions.TrackWork$(APP_SUFIX).watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -679,7 +689,7 @@
 				DEVELOPMENT_TEAM = HT3YCTX6YE;
 				IBSC_MODULE = TrackWork_WatchKit_Extension;
 				INFOPLIST_FILE = "TrackWork WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = SalgadoProductions.TrackWork.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = "SalgadoProductions.TrackWork$(APP_SUFIX).watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -692,7 +702,6 @@
 		78FA8F87224137DD00EF23B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APP_SUFIX = .dev;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.dev;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HT3YCTX6YE;
@@ -712,7 +721,6 @@
 		78FA8F88224137DD00EF23B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APP_SUFIX = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.dev;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HT3YCTX6YE;
