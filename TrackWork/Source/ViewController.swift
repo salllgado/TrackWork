@@ -26,6 +26,11 @@ class ViewController: UIViewController {
         let messageToBePresent = "Você deve bater o ponto as \(formatterData)"
         
         lbTimeToGo.text = messageToBePresent
+        sendDataToAppleWatch(data: messageToBePresent)
+    }
+    
+    private func sendDataToAppleWatch(data: Any) {
+        WatchAppManager.sendData(key: "dataString", value: data)
     }
     
     private func getFutureDate(from date: Date) -> Date {

@@ -8,14 +8,26 @@
 
 import WatchKit
 import Foundation
-
+import WatchConnectivity
 
 class InterfaceController: WKInterfaceController {
 
+    @IBOutlet weak var lbTitle: WKInterfaceLabel!
+    @IBOutlet weak var lbTime: WKInterfaceLabel!
+    
+    var watchSession: WCSession? {
+        didSet {
+            if let session = watchSession {
+                session.delegate = self
+                session.activate()
+            }
+        }
+    }
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        // Configure interface objects here.
+        watchSession = WCSession.default
+        lbTime.setAlpha(0.0)
     }
     
     override func willActivate() {
@@ -28,4 +40,34 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
 
+    
+    private func displayTime(from elements: [String: Any]) {
+        for pair in elements {
+            if pair.key == "timeString" {
+                lbTime.setText(stringCast(pair.value))
+                lbTime.setAlpha(1.0)
+            }
+        }
+    }
+}
+
+extension InterfaceController: WCSessionDelegate {
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if activationState == .activated {
+            print("Conectivity recheaded")
+        } else { print(error?.localizedDescription ?? "error" ) }
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        displayTime(from: applicationContext)
+    }
+    
+    private func stringCast(_ value: Any) -> String {
+        if let stringValue = value as? String {
+            return stringValue
+        } else {
+            return ""
+        }
+    }
 }

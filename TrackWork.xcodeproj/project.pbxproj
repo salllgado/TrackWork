@@ -23,6 +23,7 @@
 		78FA8F7A224137DD00EF23B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78FA8F79224137DD00EF23B1 /* Assets.xcassets */; };
 		78FA8F962241611800EF23B1 /* Int+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F952241611800EF23B1 /* Int+DateFormatter.swift */; };
 		78FA8F982241616D00EF23B1 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */; };
+		78FA8FA022418A9C00EF23B1 /* WatchAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F9F22418A9C00EF23B1 /* WatchAppManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		78FA8F7B224137DD00EF23B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78FA8F952241611800EF23B1 /* Int+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+DateFormatter.swift"; sourceTree = "<group>"; };
 		78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
+		78FA8F9F22418A9C00EF23B1 /* WatchAppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchAppManager.swift; path = TrackWork/Source/WatchAppManager.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 		78FA8F8C22413A3400EF23B1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				78FA8F99224188F500EF23B1 /* Helper */,
 				78FA8F47224137D900EF23B1 /* ViewController.swift */,
 				78FA8F952241611800EF23B1 /* Int+DateFormatter.swift */,
 				78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */,
@@ -262,6 +265,15 @@
 				78FA8F7B224137DD00EF23B1 /* Info.plist */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		78FA8F99224188F500EF23B1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				78FA8F9F22418A9C00EF23B1 /* WatchAppManager.swift */,
+			);
+			name = Helper;
+			path = TrackWorkTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +441,7 @@
 				78FA8F48224137D900EF23B1 /* ViewController.swift in Sources */,
 				78FA8F962241611800EF23B1 /* Int+DateFormatter.swift in Sources */,
 				78FA8F982241616D00EF23B1 /* DateFormatterHelper.swift in Sources */,
+				78FA8FA022418A9C00EF23B1 /* WatchAppManager.swift in Sources */,
 				78FA8F46224137D900EF23B1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
