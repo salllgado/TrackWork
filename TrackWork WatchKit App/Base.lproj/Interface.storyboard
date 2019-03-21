@@ -17,8 +17,9 @@
                         <label width="136" alignment="left" text="TITLE" textAlignment="left" numberOfLines="2" id="8rF-4B-A4B">
                             <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
                         </label>
-                        <label width="136" alignment="left" text="01/01/2010 12:00" numberOfLines="2" id="V4h-Fx-17Z">
+                        <label width="136" alignment="left" text="01/01/2010 12:00" numberOfLines="0" id="V4h-Fx-17Z">
                             <color key="textColor" red="0.1972902715" green="0.57593542340000003" blue="0.9855049253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                         <separator alignment="left" id="lsD-oU-YvB"/>
                     </items>

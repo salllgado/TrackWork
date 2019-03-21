@@ -14,6 +14,7 @@ class InterfaceController: WKInterfaceController {
 
     @IBOutlet weak var lbTitle: WKInterfaceLabel!
     @IBOutlet weak var lbTime: WKInterfaceLabel!
+//    @IBOutlet weak var lbLastedTime: WKInterfaceLabel!
     
     var watchSession: WCSession? {
         didSet {
@@ -27,27 +28,32 @@ class InterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         watchSession = WCSession.default
+        lbTitle.setText("Horario")
         lbTime.setAlpha(0.0)
+//        lbLastedTime.setAlpha(0.0)
     }
-    
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
-
     
     private func displayTime(from elements: [String: Any]) {
+        sendNotification(elements: elements)
+        
         for pair in elements {
-            if pair.key == "timeString" {
-                lbTime.setText(stringCast(pair.value))
+            if pair.key == "exitDateString" {
+                guard let date = pair.value as? Date else { return }
+                let dateFormatted = DateFormatterHelper.formatDate(date)
+                lbTime.setText("É a data que você deve bater o ponto novamente.")
                 lbTime.setAlpha(1.0)
+                lbTitle.setText(dateFormatted)
+            }
+            if pair.key == "startDateString" {
+//                lbLastedTime.setText("Foi a data do ultimo ponto.")
+//                lbLastedTime.setAlpha(1.0)
+//                lbLastedTitle.setText(stringCast(pair.value))
             }
         }
+    }
+    
+    private func sendNotification(elements: [String: Any]) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "someNotification"), object: nil, userInfo: elements)
     }
 }
 
@@ -61,13 +67,5 @@ extension InterfaceController: WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         displayTime(from: applicationContext)
-    }
-    
-    private func stringCast(_ value: Any) -> String {
-        if let stringValue = value as? String {
-            return stringValue
-        } else {
-            return ""
-        }
     }
 }
