@@ -12,31 +12,10 @@ import WatchConnectivity
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
+    var nextDate: Date?
     var nextDateString: String?
     var nextDateTimeInteral: TimeInterval?
     var template: CLKComplicationTemplate?
-    var notificationWasRegistred: Bool = false
-    
-    private func registerNotification() {
-        if !notificationWasRegistred {
-            NotificationCenter.default.addObserver(self, selector: #selector(updateCompilation(_:)), name: NSNotification.Name("someNotification"), object: nil)
-        }
-    }
-    
-    @objc func updateCompilation(_ notification: NSNotification) {
-        guard let exitDate = notification.userInfo?["exitDateString"] as? Date else { return }
-        let complicationServer = CLKComplicationServer.sharedInstance()
-        
-        nextDateString = DateFormatterHelper.formatDate(exitDate)
-        nextDateTimeInteral = exitDate.timeIntervalSinceReferenceDate
-        
-        if let activeCompilation = complicationServer.activeComplications {
-            for complication in activeCompilation {
-                print("UPDATE COMPLICATION")
-                complicationServer.reloadTimeline(for: complication)
-            }
-        }
-    }
     
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
         handler([.forward, .backward])
@@ -49,7 +28,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getPlaceholderTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
-        registerNotification()
         setup(for: complication)
         handler(template)
     }
@@ -58,13 +36,19 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         if let _nextDateTimeInteral = nextDateTimeInteral {
             let nowTimeInterval = Date().timeIntervalSinceReferenceDate
             let diference = _nextDateTimeInteral - nowTimeInterval
-            return 1.1
+            return Float(((nowTimeInterval - _nextDateTimeInteral) * 100) / diference)
         } else {
             return 0.0
         }
     }
     
     private func setup(for complication: CLKComplication) {
+        if let _nextDate = UserDefaults.standard.object(forKey: "nextDate") as? Date {
+            nextDate = _nextDate
+            nextDateString = DateFormatterHelper.formatDate(_nextDate)
+            nextDateTimeInteral = _nextDate.timeIntervalSinceReferenceDate
+        }
+        
         switch complication.family {
         case .modularSmall:
             let modularSmallTemplate =
@@ -77,7 +61,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         case .modularLarge:
             template = CreateCompilationTemplate.modularLarge(
                 title: "TrackWork",
-                body1: "Bater o ponto as:",
+                body1: nextDateString != nil ? "Bater o ponto as:" : "",
                 body2: nextDateString ?? "Abra o app para atualizar"
             )
         default:

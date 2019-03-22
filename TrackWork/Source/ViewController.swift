@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     
     private func saveData() {
         let futureDate = getFutureDate(from: Date())
-//        let nextDateFormatted =
         let messageToBePresent = "Você deve bater o ponto as \(DateFormatterHelper.formatDate(futureDate))"
         
         lbTimeToGo.text = messageToBePresent
