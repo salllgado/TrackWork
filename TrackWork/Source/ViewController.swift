@@ -16,28 +16,37 @@ enum AvailableViews {
 class ViewController: UIViewController {
 
     @IBOutlet weak var btnCheckIn: UIButton!
+    @IBOutlet weak var btnManualCheckIn: UIButton!
+    @IBOutlet weak var btnAutomaticView: UIButton!
+    @IBOutlet weak var btnManualView: UIButton!
+    
     @IBOutlet weak var lbDescription: UILabel!
     @IBOutlet weak var lbTimeToGo: UILabel!
-    @IBOutlet weak var segmentedControll: UISegmentedControl!
+    @IBOutlet weak var lbTimeToGoManual: UILabel!
+    
     @IBOutlet weak var manualContainerView: UIView!
     @IBOutlet weak var automaticContainerView: UIView!
+    @IBOutlet weak var containerButtonAutomatic: UIView!
+    @IBOutlet weak var containerButtonManual: UIView!
+    @IBOutlet weak var containerButtons: UIView!
+    
+    @IBOutlet weak var lcManualViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUIPreferences()
+        switchViews(hidden: .automaticView)
     }
     
-    private func saveData() {
-        let futureDate = getFutureDate(from: Date())
+    private func saveDate(date: Date = Date()) {
+        let futureDate = getFutureDate(from: date)
         let messageToBePresent = "Você deve bater o ponto as \(DateFormatterHelper.formatDate(futureDate))"
         
         lbTimeToGo.text = messageToBePresent
+        lbTimeToGoManual.text = messageToBePresent
         sendDataToAppleWatch(data: Date(), preferKey: "startDateString")
         sendDataToAppleWatch(data: futureDate, preferKey: "exitDateString")
-    }
-    
-    private func sendDataToAppleWatch(data: Any, preferKey: String) {
-        WatchAppManager.sendData(key: preferKey, value: data)
     }
     
     private func getFutureDate(from date: Date) -> Date {
@@ -46,35 +55,46 @@ class ViewController: UIViewController {
         return date.addingTimeInterval(TimeInterval(timeintervalForHour))
     }
     
+    private func sendDataToAppleWatch(data: Any, preferKey: String) {
+        WatchAppManager.sendData(key: preferKey, value: data)
+    }
+    
     private func animateDisabledButton() {
         UIView.animate(withDuration: 0.2) {
             self.btnCheckIn.alpha = 0.7
             self.lbTimeToGo.alpha = 1
+            self.btnCheckIn.isEnabled = false
         }
-//        btnCheckIn.isEnabled = false
     }
     
     private func switchViews(hidden availableView: AvailableViews) {
         availableView == .manualView ? (automaticContainerView.isHidden = true) : (automaticContainerView.isHidden = false)
-        manualContainerView.isHidden =  !automaticContainerView.isHidden
+        manualContainerView.isHidden = !automaticContainerView.isHidden
+        
+        // automatic view configuration
+        automaticContainerView.isHidden == false ? (containerButtonAutomatic.backgroundColor = btnCheckIn.backgroundColor) : (containerButtonAutomatic.backgroundColor = .white)
+        automaticContainerView.isHidden == false ? btnAutomaticView.setTitleColor(.white, for: .normal) : btnAutomaticView.setTitleColor(btnCheckIn.backgroundColor, for: .normal)
+        
+        // manual view configuration
+        manualContainerView.isHidden == false ? (containerButtonManual.backgroundColor = btnCheckIn.backgroundColor) : (containerButtonManual.backgroundColor = .white)
+        manualContainerView.isHidden == false ? btnManualView.setTitleColor(.white, for: .normal) : btnManualView.setTitleColor(btnCheckIn.backgroundColor, for: .normal)
     }
     
     @IBAction func actionCheckin(_ sender: Any) {
-        saveData()
+        saveDate()
         animateDisabledButton()
     }
     
-    @IBAction func switchSegmentedControll(_ sender: Any) {
-        switch segmentedControll.selectedSegmentIndex {
-        case 0:
-            switchViews(hidden: .automaticView)
-            break
-        case 1:
-            switchViews(hidden: .manualView)
-            break
-        default:
-            break
-        }
+    @IBAction func actionCheckInManual(_ sender: Any) {
+        saveDate(date: datePicker.date)
+    }
+    
+    @IBAction func actionSwitchAutomatic(_ sender: Any) {
+        switchViews(hidden: .automaticView)
+    }
+    
+    @IBAction func actionSwitchManual(_ sender: Any) {
+        switchViews(hidden: .manualView)
     }
 }
 
@@ -88,13 +108,19 @@ extension ViewController {
         navigationController?.navigationBar.backgroundColor = .blue
         
         // Outlets Configuration.
-        segmentedControll.setTitle("Modo Automatico", forSegmentAt: 0)
-        segmentedControll.setTitle("Modo Manual", forSegmentAt: 1)
-//        segmentedControll.tintColor = navigationController?.navigationBar.backgroundColor
+        containerButtonAutomatic.round(with: .left, radius: 14.0)
+        containerButtonManual.round(with: .right, radius: 14.0)
         btnCheckIn.layer.cornerRadius = (btnCheckIn.frame.height/2)
+        
+        lbTimeToGo.alpha = 0
+        
+        // Setting labels
+        btnAutomaticView.setTitle("Automatico", for: .normal)
+        btnManualView.setTitle("Manual", for: .normal)
         btnCheckIn.setTitle("Bater Ponto", for: .normal)
+        btnManualCheckIn.setTitle("Bater Ponto", for: .normal)
         lbDescription.text = "Aqui você bate seu ponto e a gente te avisa do resto. Vamos lá."
         lbTimeToGo.text = ""
-        lbTimeToGo.alpha = 0
+        lbTimeToGoManual.text = ""
     }
 }

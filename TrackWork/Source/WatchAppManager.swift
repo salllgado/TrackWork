@@ -12,7 +12,9 @@ import WatchConnectivity
 public class WatchAppManager {
     
     public class func sendData(key: String, value: Any) {
-        sendDataFromAppleWatch(dict: [key: value])
+        if WCSession.isSupported() && WCSession.default.isPaired {
+            sendDataFromAppleWatch(dict: [key: value])
+        }
     }
     
     fileprivate class func sendDataFromAppleWatch(dict: [String: Any]) {

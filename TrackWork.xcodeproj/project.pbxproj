@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78CD250522455999003C040A /* UIView+Corner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CD250422455999003C040A /* UIView+Corner.swift */; };
 		78ED41452243C2950064AA4A /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */; };
 		78FA8F46224137D900EF23B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F45224137D900EF23B1 /* AppDelegate.swift */; };
 		78FA8F48224137D900EF23B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F47224137D900EF23B1 /* ViewController.swift */; };
@@ -79,6 +80,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		78CD250422455999003C040A /* UIView+Corner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Corner.swift"; sourceTree = "<group>"; };
 		78FA8F42224137D900EF23B1 /* TrackWork.dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackWork.dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78FA8F45224137D900EF23B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78FA8F47224137D900EF23B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78CD250322455983003C040A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				78CD250422455999003C040A /* UIView+Corner.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		78FA8F39224137D900EF23B1 = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +205,7 @@
 		78FA8F8C22413A3400EF23B1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				78CD250322455983003C040A /* Extension */,
 				78FA8FA12242B4F600EF23B1 /* Helper */,
 				78FA8F47224137D900EF23B1 /* ViewController.swift */,
 				78FA8F952241611800EF23B1 /* Int+DateFormatter.swift */,
@@ -453,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78FA8F48224137D900EF23B1 /* ViewController.swift in Sources */,
+				78CD250522455999003C040A /* UIView+Corner.swift in Sources */,
 				78FA8F962241611800EF23B1 /* Int+DateFormatter.swift in Sources */,
 				78FA8F982241616D00EF23B1 /* DateFormatterHelper.swift in Sources */,
 				78FA8FA022418A9C00EF23B1 /* WatchAppManager.swift in Sources */,
