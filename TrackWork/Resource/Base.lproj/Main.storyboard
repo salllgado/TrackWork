@@ -21,18 +21,46 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oup-WS-XkW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kND-MA-vY8" userLabel="Segmented Container">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="y9H-JA-KpU">
+                                                <rect key="frame" x="43.666666666666657" y="16" width="288" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="4Dt-KA-rRm"/>
+                                                    <constraint firstAttribute="width" priority="750" constant="288" id="n08-Q3-RTC"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="First"/>
+                                                    <segment title="Second"/>
+                                                </segments>
+                                                <color key="tintColor" red="0.1972902715" green="0.57593542340000003" blue="0.9855049253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="switchSegmentedControll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hJd-UX-EZ8"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="y9H-JA-KpU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kND-MA-vY8" secondAttribute="leading" constant="32" id="25P-So-Nzs"/>
+                                            <constraint firstAttribute="bottom" secondItem="y9H-JA-KpU" secondAttribute="bottom" constant="16" id="4iK-C0-EJX"/>
+                                            <constraint firstItem="y9H-JA-KpU" firstAttribute="top" secondItem="kND-MA-vY8" secondAttribute="top" constant="16" id="aUj-Y5-PIe"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="y9H-JA-KpU" secondAttribute="trailing" constant="32" id="ci6-GI-WVi"/>
+                                            <constraint firstItem="y9H-JA-KpU" firstAttribute="centerX" secondItem="kND-MA-vY8" secondAttribute="centerX" id="obB-US-O43"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Dw-cJ-ygi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="489.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="63.999999999999972" width="375" height="489.33333333333326"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKa-au-4bf">
                                                 <rect key="frame" x="16" y="48" width="343" height="297.33333333333331"/>
-                                                <mutableString key="text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</mutableString>
+                                                <string key="text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</string>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bli-ND-fNm">
-                                                <rect key="frame" x="43.666666666666657" y="377.33333333333331" width="288" height="44"/>
+                                                <rect key="frame" x="43.666666666666657" y="377.33333333333337" width="288" height="44"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.80615903249999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="69o-ea-7sI"/>
@@ -72,9 +100,13 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="3Dw-cJ-ygi" firstAttribute="top" secondItem="oup-WS-XkW" secondAttribute="top" id="4os-2D-AjC"/>
+                                    <constraint firstItem="3Dw-cJ-ygi" firstAttribute="top" secondItem="kND-MA-vY8" secondAttribute="bottom" id="0fO-c5-Ano"/>
+                                    <constraint firstItem="kND-MA-vY8" firstAttribute="top" secondItem="oup-WS-XkW" secondAttribute="top" id="11Z-YR-OCe"/>
+                                    <constraint firstAttribute="trailing" secondItem="kND-MA-vY8" secondAttribute="trailing" id="Zb8-Mp-o6w"/>
+                                    <constraint firstItem="kND-MA-vY8" firstAttribute="leading" secondItem="oup-WS-XkW" secondAttribute="leading" id="lme-6r-YkI"/>
                                     <constraint firstAttribute="trailing" secondItem="3Dw-cJ-ygi" secondAttribute="trailing" id="odo-GG-Pvs"/>
                                     <constraint firstItem="3Dw-cJ-ygi" firstAttribute="leading" secondItem="oup-WS-XkW" secondAttribute="leading" id="onc-qE-UnJ"/>
+                                    <constraint firstItem="3Dw-cJ-ygi" firstAttribute="top" secondItem="kND-MA-vY8" secondAttribute="bottom" id="trN-st-iLK"/>
                                     <constraint firstAttribute="bottom" secondItem="3Dw-cJ-ygi" secondAttribute="bottom" id="xxm-4k-Zm6"/>
                                 </constraints>
                             </scrollView>
@@ -87,14 +119,17 @@
                             <constraint firstAttribute="trailing" secondItem="oup-WS-XkW" secondAttribute="trailing" id="Xqn-fA-zRv"/>
                             <constraint firstItem="oup-WS-XkW" firstAttribute="top" secondItem="hgJ-WS-F3T" secondAttribute="topMargin" id="ZrL-Dy-lpz"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="oi6-3O-4Ms"/>
                     </view>
                     <navigationItem key="navigationItem" id="jPT-PM-Vte">
                         <barButtonItem key="backBarButtonItem" title=" " id="fi0-WU-xhQ"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="automaticContainerView" destination="3Dw-cJ-ygi" id="fcp-q8-Eqe"/>
                         <outlet property="btnCheckIn" destination="Bli-ND-fNm" id="N77-Jg-iu9"/>
                         <outlet property="lbDescription" destination="eKa-au-4bf" id="xxS-Hw-cf2"/>
                         <outlet property="lbTimeToGo" destination="tuY-Nd-AeW" id="mI6-OO-ScE"/>
+                        <outlet property="segmentedControll" destination="y9H-JA-KpU" id="SRj-vW-jxj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
