@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78ED41452243C2950064AA4A /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */; };
 		78FA8F46224137D900EF23B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F45224137D900EF23B1 /* AppDelegate.swift */; };
 		78FA8F48224137D900EF23B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F47224137D900EF23B1 /* ViewController.swift */; };
 		78FA8F4B224137D900EF23B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78FA8F49224137D900EF23B1 /* Main.storyboard */; };
@@ -23,6 +24,9 @@
 		78FA8F7A224137DD00EF23B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78FA8F79224137DD00EF23B1 /* Assets.xcassets */; };
 		78FA8F962241611800EF23B1 /* Int+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F952241611800EF23B1 /* Int+DateFormatter.swift */; };
 		78FA8F982241616D00EF23B1 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */; };
+		78FA8FA022418A9C00EF23B1 /* WatchAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F9F22418A9C00EF23B1 /* WatchAppManager.swift */; };
+		78FA8FA42242CDCE00EF23B1 /* StringCastHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8FA32242CDCE00EF23B1 /* StringCastHelper.swift */; };
+		78FA8FA62242CE2F00EF23B1 /* CreateCompilationTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8FA52242CE2F00EF23B1 /* CreateCompilationTemplate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +101,9 @@
 		78FA8F7B224137DD00EF23B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78FA8F952241611800EF23B1 /* Int+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+DateFormatter.swift"; sourceTree = "<group>"; };
 		78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
+		78FA8F9F22418A9C00EF23B1 /* WatchAppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchAppManager.swift; path = TrackWork/Source/WatchAppManager.swift; sourceTree = SOURCE_ROOT; };
+		78FA8FA32242CDCE00EF23B1 /* StringCastHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCastHelper.swift; sourceTree = "<group>"; };
+		78FA8FA52242CE2F00EF23B1 /* CreateCompilationTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompilationTemplate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +195,7 @@
 		78FA8F8C22413A3400EF23B1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				78FA8FA12242B4F600EF23B1 /* Helper */,
 				78FA8F47224137D900EF23B1 /* ViewController.swift */,
 				78FA8F952241611800EF23B1 /* Int+DateFormatter.swift */,
 				78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */,
@@ -249,6 +257,7 @@
 		78FA8F9322413A9A00EF23B1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				78FA8FA22242CDBC00EF23B1 /* Helper */,
 				78FA8F73224137DC00EF23B1 /* InterfaceController.swift */,
 				78FA8F77224137DC00EF23B1 /* ComplicationController.swift */,
 			);
@@ -262,6 +271,23 @@
 				78FA8F7B224137DD00EF23B1 /* Info.plist */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		78FA8FA12242B4F600EF23B1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				78FA8F9F22418A9C00EF23B1 /* WatchAppManager.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		78FA8FA22242CDBC00EF23B1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				78FA8FA32242CDCE00EF23B1 /* StringCastHelper.swift */,
+				78FA8FA52242CE2F00EF23B1 /* CreateCompilationTemplate.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +455,7 @@
 				78FA8F48224137D900EF23B1 /* ViewController.swift in Sources */,
 				78FA8F962241611800EF23B1 /* Int+DateFormatter.swift in Sources */,
 				78FA8F982241616D00EF23B1 /* DateFormatterHelper.swift in Sources */,
+				78FA8FA022418A9C00EF23B1 /* WatchAppManager.swift in Sources */,
 				78FA8F46224137D900EF23B1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,9 +472,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78ED41452243C2950064AA4A /* DateFormatterHelper.swift in Sources */,
 				78FA8F76224137DC00EF23B1 /* ExtensionDelegate.swift in Sources */,
 				78FA8F74224137DC00EF23B1 /* InterfaceController.swift in Sources */,
 				78FA8F78224137DC00EF23B1 /* ComplicationController.swift in Sources */,
+				78FA8FA42242CDCE00EF23B1 /* StringCastHelper.swift in Sources */,
+				78FA8FA62242CE2F00EF23B1 /* CreateCompilationTemplate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,7 +652,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HT3YCTX6YE;
+				DEVELOPMENT_TEAM = 6RT2556654;
 				INFOPLIST_FILE = "TrackWork WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -635,7 +665,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
 		};
@@ -644,7 +674,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HT3YCTX6YE;
+				DEVELOPMENT_TEAM = 6RT2556654;
 				INFOPLIST_FILE = "TrackWork WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -657,7 +687,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -667,7 +697,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HT3YCTX6YE;
+				DEVELOPMENT_TEAM = 6RT2556654;
 				IBSC_MODULE = TrackWork_WatchKit_Extension;
 				INFOPLIST_FILE = "TrackWork WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "SalgadoProductions.TrackWork$(APP_SUFIX).watchkitapp";
@@ -676,7 +706,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
 		};
@@ -686,7 +716,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HT3YCTX6YE;
+				DEVELOPMENT_TEAM = 6RT2556654;
 				IBSC_MODULE = TrackWork_WatchKit_Extension;
 				INFOPLIST_FILE = "TrackWork WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "SalgadoProductions.TrackWork$(APP_SUFIX).watchkitapp";
@@ -695,7 +725,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -704,7 +734,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.dev;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HT3YCTX6YE;
+				DEVELOPMENT_TEAM = 6RT2556654;
 				INFOPLIST_FILE = TrackWork/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -723,7 +753,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.dev;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HT3YCTX6YE;
+				DEVELOPMENT_TEAM = 6RT2556654;
 				INFOPLIST_FILE = TrackWork/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -743,7 +773,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HT3YCTX6YE;
+				DEVELOPMENT_TEAM = 6RT2556654;
 				INFOPLIST_FILE = TrackWorkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -764,7 +794,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HT3YCTX6YE;
+				DEVELOPMENT_TEAM = 6RT2556654;
 				INFOPLIST_FILE = TrackWorkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

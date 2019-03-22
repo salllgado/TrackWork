@@ -7,50 +7,65 @@
 //
 
 import ClockKit
-
+import WatchKit
+import WatchConnectivity
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
-    // MARK: - Timeline Configuration
+    var nextDate: Date?
+    var nextDateString: String?
+    var nextDateTimeInteral: TimeInterval?
+    var template: CLKComplicationTemplate?
     
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
         handler([.forward, .backward])
     }
     
-    func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        handler(nil)
-    }
-    
-    func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        handler(nil)
-    }
-    
-    func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
-        handler(.showOnLockScreen)
-    }
-    
-    // MARK: - Timeline Population
-    
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        // Call the handler with the current timeline entry
-        handler(nil)
+        setup(for: complication)
+        guard let _template = template else { return }
+        handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: _template))
     }
     
-    func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-        // Call the handler with the timeline entries prior to the given date
-        handler(nil)
+    func getPlaceholderTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
+        setup(for: complication)
+        handler(template)
     }
     
-    func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-        // Call the handler with the timeline entries after to the given date
-        handler(nil)
+    private func getRingRange() -> Float {
+        if let _nextDateTimeInteral = nextDateTimeInteral {
+            let nowTimeInterval = Date().timeIntervalSinceReferenceDate
+            let diference = _nextDateTimeInteral - nowTimeInterval
+            return Float(((nowTimeInterval - _nextDateTimeInteral) * 100) / diference)
+        } else {
+            return 0.0
+        }
     }
     
-    // MARK: - Placeholder Templates
-    
-    func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
-        // This method will be called once per supported complication, and the results will be cached
-        handler(nil)
+    private func setup(for complication: CLKComplication) {
+        if let _nextDate = UserDefaults.standard.object(forKey: "nextDate") as? Date {
+            nextDate = _nextDate
+            nextDateString = DateFormatterHelper.formatDate(_nextDate)
+            nextDateTimeInteral = _nextDate.timeIntervalSinceReferenceDate
+        }
+        
+        switch complication.family {
+        case .modularSmall:
+            let modularSmallTemplate =
+                CLKComplicationTemplateModularSmallRingText()
+            modularSmallTemplate.textProvider =
+                CLKSimpleTextProvider(text: "->")
+            modularSmallTemplate.fillFraction = getRingRange()
+            modularSmallTemplate.ringStyle = CLKComplicationRingStyle.closed
+            template = modularSmallTemplate
+        case .modularLarge:
+            template = CreateCompilationTemplate.modularLarge(
+                title: "TrackWork",
+                body1: nextDateString != nil ? "Bater o ponto as:" : "",
+                body2: nextDateString ?? "Abra o app para atualizar"
+            )
+        default:
+            template = nil
+        }
     }
-    
 }

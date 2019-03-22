@@ -6,26 +6,89 @@
 //  Copyright © 2019 Chrystian Salgado. All rights reserved.
 //
 
-import WatchKit
 import Foundation
-
+import ClockKit
+import WatchKit
+import WatchConnectivity
 
 class InterfaceController: WKInterfaceController {
 
+    @IBOutlet weak var lbTitle: WKInterfaceLabel!
+    @IBOutlet weak var lbTime: WKInterfaceLabel!
+//    @IBOutlet weak var lbLastedTime: WKInterfaceLabel!
+    
+    var nextDate: Date?
+    var nextDateString: String = ""
+    var nextDateTimeInteral: TimeInterval = 0.0
+    var watchSession: WCSession? {
+        didSet {
+            if let session = watchSession {
+                session.delegate = self
+                session.activate()
+            }
+        }
+    }
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        if let _nextDate = UserDefaults.standard.object(forKey: "nextDate") as? Date {
+            nextDate = _nextDate
+            nextDateString = DateFormatterHelper.formatDate(_nextDate)
+        }
         
-        // Configure interface objects here.
+        watchSession = WCSession.default
+        lbTitle.setText("Horario")
+        lbTime.setAlpha(0.0)
+//        lbLastedTime.setAlpha(0.0)
     }
     
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
+    private func displayTime() {
+        lbTime.setText("É a data que você deve bater o ponto novamente.")
+        lbTime.setAlpha(1.0)
+        lbTitle.setText(nextDateString)
     }
     
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
+    fileprivate func storeData(from elements: [String: Any]) {
+        for pair in elements {
+            if pair.key == "exitDateString" {
+                guard let date = pair.value as? Date else { return }
+                nextDateString = DateFormatterHelper.formatDate(date)
+                UserDefaults.standard.set(date, forKey: "nextDate")
+            }
+            if pair.key == "startDateString" {
+//                lbLastedTime.setText("Foi a data do ultimo ponto.")
+//                lbLastedTime.setAlpha(1.0)
+//                lbLastedTitle.setText(stringCast(pair.value))
+            }
+        }
     }
+}
 
+extension InterfaceController: WCSessionDelegate  {
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if activationState == .activated {
+            print("Conectivity recheaded")
+        } else { print(error?.localizedDescription ?? "error" ) }
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        storeData(from: applicationContext)
+        displayTime()
+        updateCompilation()
+    }
+}
+
+extension InterfaceController {
+    private func updateCompilation() {
+        let complicationServer = CLKComplicationServer.sharedInstance()
+        
+        guard let _nextDate = nextDate else { return }
+        if let activeCompilation = complicationServer.activeComplications {
+            for complication in activeCompilation {
+                print("UPDATE COMPLICATION")
+                complicationServer.reloadTimeline(for: complication)
+            }
+        }
+    }
 }

@@ -22,10 +22,15 @@ class ViewController: UIViewController {
     
     private func saveData() {
         let futureDate = getFutureDate(from: Date())
-        let formatterData = DateFormatterHelper.formatDate(futureDate)
-        let messageToBePresent = "Você deve bater o ponto as \(formatterData)"
+        let messageToBePresent = "Você deve bater o ponto as \(DateFormatterHelper.formatDate(futureDate))"
         
         lbTimeToGo.text = messageToBePresent
+        sendDataToAppleWatch(data: Date(), preferKey: "startDateString")
+        sendDataToAppleWatch(data: futureDate, preferKey: "exitDateString")
+    }
+    
+    private func sendDataToAppleWatch(data: Any, preferKey: String) {
+        WatchAppManager.sendData(key: preferKey, value: data)
     }
     
     private func getFutureDate(from date: Date) -> Date {
@@ -39,7 +44,7 @@ class ViewController: UIViewController {
             self.btnCheckIn.alpha = 0.7
             self.lbTimeToGo.alpha = 1
         }
-        btnCheckIn.isEnabled = false
+//        btnCheckIn.isEnabled = false
     }
     
     @IBAction func actionCheckin(_ sender: Any) {
