@@ -153,14 +153,6 @@
 			name = Extension;
 			sourceTree = "<group>";
 		};
-		78DAFA18224A92DF00782337 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				78DAFA19224A931200782337 /* Checkpoint.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		78DAFA1D224A95AC00782337 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,11 +225,11 @@
 		78FA8F8C22413A3400EF23B1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				78FFE9D7224ABFCC0074593D /* Model */,
+				78FFE9D6224ABFC00074593D /* Controller */,
 				78DAFA1D224A95AC00782337 /* Constants */,
-				78DAFA18224A92DF00782337 /* Model */,
 				78CD250322455983003C040A /* Extension */,
 				78FA8FA12242B4F600EF23B1 /* Helper */,
-				78FA8F47224137D900EF23B1 /* MainViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -330,6 +322,22 @@
 				78FA8FA52242CE2F00EF23B1 /* CreateCompilationTemplate.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		78FFE9D6224ABFC00074593D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				78FA8F47224137D900EF23B1 /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		78FFE9D7224ABFCC0074593D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78DAFA19224A931200782337 /* Checkpoint.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

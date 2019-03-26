@@ -76,6 +76,7 @@ class MainViewController: UIViewController {
         manualContainerView.isHidden == false ? btnManualView.setTitleColor(.white, for: .normal) : btnManualView.setTitleColor(btnCheckIn.backgroundColor, for: .normal)
     }
     
+    // MARK: Actions
     @IBAction func actionCheckin(_ sender: Any) {
         saveDate()
         animateDisabledButton()
