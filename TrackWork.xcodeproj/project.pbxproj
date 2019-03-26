@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		78CD250522455999003C040A /* UIView+Corner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CD250422455999003C040A /* UIView+Corner.swift */; };
-		78ED41452243C2950064AA4A /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */; };
+		78DAFA17224A61A700782337 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78DAFA16224A61A700782337 /* Localizable.strings */; };
+		78DAFA1A224A931200782337 /* Checkpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DAFA19224A931200782337 /* Checkpoint.swift */; };
+		78DAFA1C224A93A000782337 /* CheckpointControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DAFA1B224A93A000782337 /* CheckpointControll.swift */; };
+		78DAFA1F224A95C700782337 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DAFA1E224A95C700782337 /* Constants.swift */; };
+		78DAFA21224A970A00782337 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DAFA1E224A95C700782337 /* Constants.swift */; };
 		78FA8F46224137D900EF23B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F45224137D900EF23B1 /* AppDelegate.swift */; };
-		78FA8F48224137D900EF23B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F47224137D900EF23B1 /* ViewController.swift */; };
+		78FA8F48224137D900EF23B1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA8F47224137D900EF23B1 /* MainViewController.swift */; };
 		78FA8F4B224137D900EF23B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78FA8F49224137D900EF23B1 /* Main.storyboard */; };
 		78FA8F4D224137DB00EF23B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78FA8F4C224137DB00EF23B1 /* Assets.xcassets */; };
 		78FA8F50224137DB00EF23B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78FA8F4E224137DB00EF23B1 /* LaunchScreen.storyboard */; };
@@ -81,9 +85,16 @@
 
 /* Begin PBXFileReference section */
 		78CD250422455999003C040A /* UIView+Corner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Corner.swift"; sourceTree = "<group>"; };
+		78DAFA13224A619200782337 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		78DAFA14224A619300782337 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		78DAFA15224A619300782337 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Interface.strings"; sourceTree = "<group>"; };
+		78DAFA16224A61A700782337 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		78DAFA19224A931200782337 /* Checkpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkpoint.swift; sourceTree = "<group>"; };
+		78DAFA1B224A93A000782337 /* CheckpointControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckpointControll.swift; sourceTree = "<group>"; };
+		78DAFA1E224A95C700782337 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		78FA8F42224137D900EF23B1 /* TrackWork.dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackWork.dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78FA8F45224137D900EF23B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		78FA8F47224137D900EF23B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		78FA8F47224137D900EF23B1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		78FA8F4A224137D900EF23B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78FA8F4C224137DB00EF23B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78FA8F4F224137DB00EF23B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -137,8 +148,25 @@
 			isa = PBXGroup;
 			children = (
 				78CD250422455999003C040A /* UIView+Corner.swift */,
+				78FA8F952241611800EF23B1 /* Int+DateFormatter.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		78DAFA18224A92DF00782337 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78DAFA19224A931200782337 /* Checkpoint.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		78DAFA1D224A95AC00782337 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				78DAFA1E224A95C700782337 /* Constants.swift */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 		78FA8F39224137D900EF23B1 = {
@@ -205,11 +233,11 @@
 		78FA8F8C22413A3400EF23B1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				78DAFA1D224A95AC00782337 /* Constants */,
+				78DAFA18224A92DF00782337 /* Model */,
 				78CD250322455983003C040A /* Extension */,
 				78FA8FA12242B4F600EF23B1 /* Helper */,
-				78FA8F47224137D900EF23B1 /* ViewController.swift */,
-				78FA8F952241611800EF23B1 /* Int+DateFormatter.swift */,
-				78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */,
+				78FA8F47224137D900EF23B1 /* MainViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -229,6 +257,7 @@
 			children = (
 				78FA8F45224137D900EF23B1 /* AppDelegate.swift */,
 				78FA8F51224137DB00EF23B1 /* Info.plist */,
+				78DAFA16224A61A700782337 /* Localizable.strings */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -287,6 +316,8 @@
 		78FA8FA12242B4F600EF23B1 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				78DAFA1B224A93A000782337 /* CheckpointControll.swift */,
+				78FA8F972241616D00EF23B1 /* DateFormatterHelper.swift */,
 				78FA8F9F22418A9C00EF23B1 /* WatchAppManager.swift */,
 			);
 			name = Helper;
@@ -427,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78FA8F50224137DB00EF23B1 /* LaunchScreen.storyboard in Resources */,
+				78DAFA17224A61A700782337 /* Localizable.strings in Resources */,
 				78FA8F4D224137DB00EF23B1 /* Assets.xcassets in Resources */,
 				78FA8F4B224137D900EF23B1 /* Main.storyboard in Resources */,
 			);
@@ -463,12 +495,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78FA8F48224137D900EF23B1 /* ViewController.swift in Sources */,
+				78DAFA1C224A93A000782337 /* CheckpointControll.swift in Sources */,
+				78FA8F48224137D900EF23B1 /* MainViewController.swift in Sources */,
+				78DAFA1A224A931200782337 /* Checkpoint.swift in Sources */,
 				78CD250522455999003C040A /* UIView+Corner.swift in Sources */,
 				78FA8F962241611800EF23B1 /* Int+DateFormatter.swift in Sources */,
 				78FA8F982241616D00EF23B1 /* DateFormatterHelper.swift in Sources */,
 				78FA8FA022418A9C00EF23B1 /* WatchAppManager.swift in Sources */,
 				78FA8F46224137D900EF23B1 /* AppDelegate.swift in Sources */,
+				78DAFA1F224A95C700782337 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,10 +519,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78ED41452243C2950064AA4A /* DateFormatterHelper.swift in Sources */,
 				78FA8F76224137DC00EF23B1 /* ExtensionDelegate.swift in Sources */,
 				78FA8F74224137DC00EF23B1 /* InterfaceController.swift in Sources */,
 				78FA8F78224137DC00EF23B1 /* ComplicationController.swift in Sources */,
+				78DAFA21224A970A00782337 /* Constants.swift in Sources */,
 				78FA8FA42242CDCE00EF23B1 /* StringCastHelper.swift in Sources */,
 				78FA8FA62242CE2F00EF23B1 /* CreateCompilationTemplate.swift in Sources */,
 			);
@@ -518,6 +553,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				78FA8F4A224137D900EF23B1 /* Base */,
+				78DAFA13224A619200782337 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -526,6 +562,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				78FA8F4F224137DB00EF23B1 /* Base */,
+				78DAFA14224A619300782337 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -534,6 +571,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				78FA8F65224137DB00EF23B1 /* Base */,
+				78DAFA15224A619300782337 /* pt-BR */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -546,6 +584,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APP_SUFIX = .dev;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -608,6 +647,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APP_SUFIX = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

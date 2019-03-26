@@ -13,6 +13,7 @@ public class DateFormatterHelper {
     public class func formatDate(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM h:mm a"
+        
         return formatter.string(from: date)
     }
 }

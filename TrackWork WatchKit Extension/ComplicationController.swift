@@ -43,7 +43,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     private func setup(for complication: CLKComplication) {
-        if let _nextDate = UserDefaults.standard.object(forKey: "nextDate") as? Date {
+        if let _nextDate = UserDefaults.standard.object(forKey: Constants.Defaults.Watch.nextDate.rawValue) as? Date {
             nextDate = _nextDate
             nextDateString = DateFormatterHelper.formatDate(_nextDate)
             nextDateTimeInteral = _nextDate.timeIntervalSinceReferenceDate

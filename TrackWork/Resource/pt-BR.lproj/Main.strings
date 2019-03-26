@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8Wy-bm-u9E"; */
+"8Wy-bm-u9E.text" = "Label";
+
+/* Class = "UIViewController"; title = "Ponto"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "Ponto";
+
+/* Class = "UIButton"; normalTitle = "BUTTON_TITLE"; ObjectID = "Bli-ND-fNm"; */
+"Bli-ND-fNm.normalTitle" = "BUTTON_TITLE";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "INr-FR-aGA"; */
+"INr-FR-aGA.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "MDd-Xi-gPh"; */
+"MDd-Xi-gPh.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."; ObjectID = "eKa-au-4bf"; */
+"eKa-au-4bf.text" = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "fi0-WU-xhQ"; */
+"fi0-WU-xhQ.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "BUTTON_TITLE"; ObjectID = "jG6-ub-2Cg"; */
+"jG6-ub-2Cg.normalTitle" = "BUTTON_TITLE";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "tuY-Nd-AeW"; */
+"tuY-Nd-AeW.text" = "Label";

@@ -8,12 +8,12 @@
 
 import UIKit
 
-enum AvailableViews {
+internal enum AvailableViews {
     case manualView
     case automaticView
 }
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     @IBOutlet weak var btnCheckIn: UIButton!
     @IBOutlet weak var btnManualCheckIn: UIButton!
@@ -40,19 +40,15 @@ class ViewController: UIViewController {
     }
     
     private func saveDate(date: Date = Date()) {
-        let futureDate = getFutureDate(from: date)
-        let messageToBePresent = "Você deve bater o ponto as \(DateFormatterHelper.formatDate(futureDate))"
+        var checkIn = Checkpoint()
+        checkIn.checkIn(date: date)
+        
+        let messageToBePresent = "Você deve bater o ponto as \(checkIn.futureTimeFormatted)"
         
         lbTimeToGo.text = messageToBePresent
         lbTimeToGoManual.text = messageToBePresent
-        sendDataToAppleWatch(data: Date(), preferKey: "startDateString")
-        sendDataToAppleWatch(data: futureDate, preferKey: "exitDateString")
-    }
-    
-    private func getFutureDate(from date: Date) -> Date {
-        let addHour = 9 // Horas no futuro.
-        let timeintervalForHour = TimeInterval(addHour.hours)
-        return date.addingTimeInterval(TimeInterval(timeintervalForHour))
+        sendDataToAppleWatch(data: checkIn.actualTime!, preferKey: Constants.Date.start.rawValue)
+        sendDataToAppleWatch(data: checkIn.futureTime!, preferKey: Constants.Date.exit.rawValue)
     }
     
     private func sendDataToAppleWatch(data: Any, preferKey: String) {
@@ -98,7 +94,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController {
+extension MainViewController {
     
     fileprivate func setUIPreferences() {
         // Nagivation Bar Configuration.

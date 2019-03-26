@@ -31,7 +31,7 @@ class InterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        if let _nextDate = UserDefaults.standard.object(forKey: "nextDate") as? Date {
+        if let _nextDate = UserDefaults.standard.object(forKey: Constants.Defaults.Watch.nextDate.rawValue) as? Date {
             nextDate = _nextDate
             nextDateString = DateFormatterHelper.formatDate(_nextDate)
         }
@@ -50,10 +50,10 @@ class InterfaceController: WKInterfaceController {
     
     fileprivate func storeData(from elements: [String: Any]) {
         for pair in elements {
-            if pair.key == "exitDateString" {
+            if pair.key == Constants.Date.exit.rawValue {
                 guard let date = pair.value as? Date else { return }
                 nextDateString = DateFormatterHelper.formatDate(date)
-                UserDefaults.standard.set(date, forKey: "nextDate")
+                UserDefaults.standard.set(date, forKey: Constants.Defaults.Watch.nextDate.rawValue)
             }
             if pair.key == "startDateString" {
 //                lbLastedTime.setText("Foi a data do ultimo ponto.")
@@ -64,8 +64,23 @@ class InterfaceController: WKInterfaceController {
     }
 }
 
+extension InterfaceController {
+    private func updateCompilation() {
+        let complicationServer = CLKComplicationServer.sharedInstance()
+        
+        if nextDate != nil {
+            if let activeCompilation = complicationServer.activeComplications {
+                for complication in activeCompilation {
+                    print("UPDATE COMPLICATION")
+                    complicationServer.reloadTimeline(for: complication)
+                }
+            }
+        }
+    }
+}
+
+
 extension InterfaceController: WCSessionDelegate  {
-    
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if activationState == .activated {
             print("Conectivity recheaded")
@@ -76,19 +91,5 @@ extension InterfaceController: WCSessionDelegate  {
         storeData(from: applicationContext)
         displayTime()
         updateCompilation()
-    }
-}
-
-extension InterfaceController {
-    private func updateCompilation() {
-        let complicationServer = CLKComplicationServer.sharedInstance()
-        
-        guard let _nextDate = nextDate else { return }
-        if let activeCompilation = complicationServer.activeComplications {
-            for complication in activeCompilation {
-                print("UPDATE COMPLICATION")
-                complicationServer.reloadTimeline(for: complication)
-            }
-        }
     }
 }
